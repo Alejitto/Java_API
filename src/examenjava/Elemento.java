@@ -4,6 +4,8 @@
  */
 package examenjava;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -29,6 +31,14 @@ public class Elemento {
     // cremos contructor para mandar llamar los metodos de esta clase
     public Elemento() {
     }
+
+    public Elemento(String carp, String tipo, String tit) {
+        this.elementos = new ArrayList<>();
+        elementos.add(new Argumento(carp, tipo, tit));
+        cDatos= new ArrayList<>();
+        cDatos.add(new CarpetaDatos(elementos.size(),carp));
+    }
+    
     
     /*metodo que administra la conexion a la API. si se establece una buena conexion, entonces
     recolecta la informacion, despues la va separando en partes mas peque…‡as hasta guardar unicamente
@@ -53,10 +63,13 @@ public class Elemento {
             JOptionPane.showMessageDialog(null, "Conexion Exitosa");
             // creamos un objeto, en la cual vamos a almacenar los datos de la API
             StringBuilder infoString = new StringBuilder();
+            
             // este objeto nos permitira establecer la conexion a la url
             Scanner scanner = new Scanner(url.openStream());
             // insertamos los datos de la url en la variable 
-            infoString.append(scanner.nextLine());
+            while(scanner.hasNext()){
+                infoString.append(scanner.nextLine());
+            }
             //terminamos la conexion
             scanner.close();
             //a partir de la cadena obtenida, creamos un JSONObject para manipular la info de manera mas sencilla
@@ -149,8 +162,9 @@ public class Elemento {
     return nomCar;
     }
     
-    public String mostrarPorCarpeta(int i){
-        if(i==16||i==-1)
+    public String mostrarPorCarpeta(int i, int tam){
+        //crear comparacion del if dinamico
+        if(i==tam||i==-1)
             System.out.println("Muestra todos");
         else{
             int comenzar=0;

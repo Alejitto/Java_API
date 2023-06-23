@@ -32,6 +32,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         
     }
     public void traerDatos() throws ProtocolException, IOException{
+        //https://syndicator.univision.com/web-api/content?url=https://www.univision.com&lazyload=false
         URL url = new URL("https://syndicator.univision.com/web-api/content?url=https://www.univision.com&lazyload=false");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
       
@@ -240,7 +241,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void jCBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBoxActionPerformed
         // TODO add your handling code here:
-        jTextArea.setText(elem.mostrarPorCarpeta(jCBox.getSelectedIndex()));
+        jTextArea.setText(elem.mostrarPorCarpeta(jCBox.getSelectedIndex(),jCBox.getItemCount()-1));
     }//GEN-LAST:event_jCBoxActionPerformed
 
     /**

@@ -1,0 +1,32 @@
+{
+    "status":"success",
+        "data":{"type":"section",
+                "widgets": [
+        {
+        "settings":{
+          "type": "topquicklinks",
+          "widget_pos": 1
+        },
+        "type": "topquicklinks",
+        "analyticsData": {
+          "widget": {
+            "widget_pos": 1,
+            "widget_title": "no title - 00000175-64cd-da08-af7d-f5ed72970023",
+            "widget_type": "top quick links",
+            "type": "topquicklinks"
+          }
+        },
+    "contents": [
+                    {
+            "type": "video",
+            "title": "? En un minuto"
+          },{
+            "type": "image",
+            "title": "Eso y mas"
+          }
+]
+}
+        ]
+  }
+}
+
